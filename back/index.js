@@ -28,12 +28,10 @@ app.use(express.urlencoded({ extended: true }));
 
 
 const pool = new Pool({
-  user: process.env.USERS,
-  host:  process.env.HOST,
-  database: process.env.DATABASE,
-  password: process.env.PASSWORD,
-  port: process.env.PORT
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
 });
+
 
 
 
