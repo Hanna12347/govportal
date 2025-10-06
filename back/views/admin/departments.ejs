@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - GovPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar .nav-link {
+            color: #ecf0f1;
+            padding: 12px 20px;
+            border-left: 4px solid transparent;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #34495e;
+            border-left-color: #3498db;
+        }
+        .sidebar .nav-link.active {
+            background-color: #34495e;
+            border-left-color: #3498db;
+            font-weight: bold;
+        }
+        .main-content {
+    margin-left: 250px;
+    height: 100vh;       
+    overflow-y: auto;    
+    padding: 20px;
+}
+        .department-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        .stats-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        .service-badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            margin: 2px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+        .action-buttons .btn {
+            padding: 0.3rem 0.6rem;
+            font-size: 0.875rem;
+        }
+        .department-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-1 sidebar px-0">
+                <div class="text-center py-4">
+                    <h4 class="mb-0">GovPortal</h4>
+                    <small>Administration</small>
+                </div>
+                <hr class="text-light mx-3">
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="/admin">
+                        Dashboard
+                    </a>
+                    <a class="nav-link" href="/admin/users">
+                        Users
+                    </a>
+                    <a class="nav-link active" href="/admin/departments">
+                        Departments
+                    </a>
+                   
+                    <a class="nav-link" href="/admin/reports">
+                        Reports
+                    </a>
+                </nav>
+            </div>
+
+           
+            <div class="col-md-9 col-lg-10 main-content">
+                
+                <div class="department-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="h3 mb-1 text-white">Department Management</h1>
+                            <p class="mb-0 text-white-50">Manage government departments and their services</p>
+                        </div>
+                        <span class="badge bg-light text-dark">
+                            
+                            <%= departments.length %> Departments
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            
+                            <div class="col-md-6 text-end">
+                                <button class="btn btn-primary">
+                                   Add New Department
+                                </button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="stats-card">
+                            
+                            <h4 class="text-dark mb-1"><%= departments.length %></h4>
+                            <p class="text-muted mb-0">Total Departments</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 mb-3">
+                        <div class="stats-card">
+                            
+                            <h4 class="text-dark mb-1">42</h4>
+                            <p class="text-muted mb-0">Total Services</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="card-title mb-0">
+                            All Departments
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <% if (departments.length === 0) { %>
+                            <div class="empty-state">
+                                
+                                <h4>No Departments Found</h4>
+                                <p class="text-muted">Get started by adding your first department</p>
+                                <button class="btn btn-primary">
+                                   Add Department
+                                </button>
+                            </div>
+                        <% } else { %>
+                            <div class="row">
+                                <% departments.forEach(function(dept, index) { %>
+                                    <div class="col-lg-6 col-xl-4 mb-3">
+                                        <div class="department-card">
+                                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                                <div>
+                                                    <h5 class="mb-1">
+                                                        
+                                                        <%= dept.name %>
+                                                    </h5>
+                                                    <p class="text-muted mb-0 small">
+                                                        
+                                                        <%= dept.description || 'No description available' %>
+                                                    </p>
+                                                </div>
+                                                
+                                            </div>
+
+                                            
+
+                                            
+
+                                            
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between small text-muted">
+                                                    <span>
+                                                        
+                                                        ID: #<%= dept.id %>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            
+                                            <div class="d-flex justify-content-between">
+                                                <button class="btn btn-outline-danger btn-sm">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

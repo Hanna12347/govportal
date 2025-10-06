@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> - GovPortal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar .nav-link {
+            color: #ecf0f1;
+            padding: 12px 20px;
+            border-left: 4px solid transparent;
+        }
+        .sidebar .nav-link:hover {
+            background-color: #34495e;
+            border-left-color: #3498db;
+        }
+        .sidebar .nav-link.active {
+            background-color: #34495e;
+            border-left-color: #3498db;
+            font-weight: bold;
+        }
+        .main-content {
+    margin-left: 250px;
+    height: 100vh;       
+    overflow-y: auto;    
+    padding: 20px;
+}
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 100%;
+            text-align: center;
+        }
+        .chart-placeholder {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 8px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            border: 2px dashed #dee2e6;
+        }
+        .report-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .progress-container {
+            background: #e9ecef;
+            border-radius: 4px;
+            height: 8px;
+            width: 100px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .bg-approved {
+            background-color: #28a745;
+        }
+        .bg-pending {
+            background-color: #ffc107;
+        }
+        .bg-rejected {
+            background-color: #dc3545;
+        }
+        .bg-under-review {
+            background-color: #17a2b8;
+        }
+        .metric-badge {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="sidebar">
+                <div class="text-center py-4">
+                    <h4 class="mb-0">GovPortal</h4>
+                    <small>Administration</small>
+                </div>
+                <hr class="text-light mx-3">
+                <nav class="nav flex-column">
+                    <a class="nav-link" href="/admin">
+                       Dashboard
+                    </a>
+                    <a class="nav-link" href="/admin/users">
+                        Users
+                    </a>
+                    <a class="nav-link" href="/admin/departments">
+                       Departments
+                    </a>
+                    
+                    <a class="nav-link active" href="/admin/reports">
+                        Reports
+                    </a>
+                </nav>
+            </div>
+
+            
+            <div class="col-md-9 col-lg-10 main-content">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1 class="h3 mb-1">System Reports & Analytics</h1>
+                        <p class="text-muted mb-0">Comprehensive overview of system performance and metrics</p>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="badge bg-primary me-2">
+                            Admin
+                        </span>
+                        
+                    </div>
+                </div>
+
+                
+                <div class="row mb-4">
+                    <div class="col-md-3 mb-3">
+                        <div class="stat-card">
+                            
+                            <h3 class="text-dark mb-1"><%= reports.TotalRequests %></h3>
+                            <p class="text-muted mb-1">Total Requests</p>
+                            
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+
+                
+                
+                                       
+
+                
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

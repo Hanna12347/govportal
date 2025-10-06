@@ -1,0 +1,250 @@
+/* Header.css */
+.egov-header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Top Bar */
+.header-top-bar {
+  background: #1a4e8e;
+  color: white;
+  padding: 8px 0;
+  font-size: 14px;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  transition: opacity 0.2s;
+}
+
+.top-links a:hover {
+  opacity: 0.8;
+}
+
+/* Main Header */
+.header-main {
+  padding: 1rem 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo {
+  font-size: 2.5rem;
+  margin-right: 15px;
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1a4e8e;
+  font-weight: bold;
+}
+
+.brand-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background: #f0f6ff;
+  color: #1a4e8e;
+}
+
+/* User Menu */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-greeting {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a, .dropdown-content button {
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #333;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-content a:hover, .dropdown-content button:hover {
+  background: #f0f6ff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.btn-outline {
+  border-color: #1a4e8e;
+  color: #1a4e8e;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #1a4e8e;
+  color: white;
+}
+
+.btn-primary {
+  background: #1a4e8e;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0d3a6b;
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.mobile-nav {
+  display: none;
+  background: white;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.mobile-nav a, .mobile-nav button {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #333;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .mobile-nav {
+    display: block;
+  }
+  
+  .top-bar-content {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .brand-text h1 {
+    font-size: 1.2rem;
+  }
+  
+  .brand-text p {
+    font-size: 0.8rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
